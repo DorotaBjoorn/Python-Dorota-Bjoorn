@@ -1,0 +1,10 @@
+Random 20 rolls are:
+ [1, 6, 2, 4, 3, 6, 1, 5, 1, 1, 6, 1, 5, 5, 4, 3, 4, 5, 6, 1]
+
+
+Those 20 rolls sorted are:
+ [1, 1, 1, 1, 1, 1, 2, 3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6]
+
+
+Number of 4s in this set of 20 is:
+ 3
