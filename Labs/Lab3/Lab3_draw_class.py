@@ -14,7 +14,7 @@ class Draw:
             if isinstance(shape, Circle):
                 patch = plt.Circle((shape.x_center, shape.y_center), shape.radius, fill = False)
             elif isinstance(shape, Rectangle):
-                patch = plt.Rectangle((shape.x_center, shape.y_center), shape.side_a, shape.side_b, fill = False)
+                patch = plt.Rectangle((shape.x_center-0.5*shape.side_a, shape.y_center-0.5*shape.side_b), shape.side_a, shape.side_b, fill = False)
     
             ax.add_patch(patch)
         plt.show()
