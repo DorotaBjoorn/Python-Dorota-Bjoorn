@@ -1,0 +1,25 @@
+
+
+Number of rolls: 10
+Ones: {ones}, probability: {prob_ones}
+Twos: {twos}, probability: {prob_twos}
+
+
+Number of rolls: 100
+Ones: {ones}, probability: {prob_ones}
+Twos: {twos}, probability: {prob_twos}
+
+
+Number of rolls: 1000
+Ones: {ones}, probability: {prob_ones}
+Twos: {twos}, probability: {prob_twos}
+
+
+Number of rolls: 10000
+Ones: {ones}, probability: {prob_ones}
+Twos: {twos}, probability: {prob_twos}
+
+
+Number of rolls: 100000
+Ones: {ones}, probability: {prob_ones}
+Twos: {twos}, probability: {prob_twos}
