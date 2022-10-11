@@ -1,4 +1,5 @@
 from __future__ import annotations
+from copy import copy
 
 class GeomShape:
     """Main class for circle and rectangle defining center point (x, y) of shape"""
@@ -64,13 +65,14 @@ class GeomShape:
 
     def translate(self, x_new: float|int, y_new: float|int) -> None:
         """Moves shape to new center point"""
+        new_shape = copy(self)
         if not isinstance(x_new, (float, int)):
             raise TypeError (f"x_new must be int or float and not {type(x_new)}")
         if not isinstance(y_new, (float, int)):
             raise TypeError (f"y_new must be int or float and not {type(y_new)}")
-        self.x_center = x_new
-        self.y_center = y_new
-        return self
+        new_shape.x_center = x_new
+        new_shape.y_center = y_new
+        return new_shape
 
     #========================================================================================================================#
 
