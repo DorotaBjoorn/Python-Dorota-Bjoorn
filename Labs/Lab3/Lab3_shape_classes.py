@@ -2,43 +2,43 @@ from __future__ import annotations
 from copy import copy
 
 class GeomShape:
-    """Main class for circle and rectangle defining center point (x, y) of shape"""
+    """Main class defining center point (x, y) of shape"""
     def __init__(self, x_center: float|int , y_center: float|int) -> None:
-        print("GS__init__ körs")
+        #print("GS__init__ körs")
         self.x_center = x_center
         self.y_center = y_center
     
     # getters
     @property
     def x_center(self) -> float|int:
-        print("GS x_center getter körs")
+        #print("GS x_center getter körs")
         return self._x_center
     
     @property
     def y_center(self) -> float|int:
-        print("GS y_center getter körs")
+        #print("GS y_center getter körs")
         return self._y_center
 
     #setters
     @x_center.setter
     def x_center(self, value: float|int) -> float|int:
-        print("GS x_center setter körs")
+        #print("GS x_center setter körs")
         if not isinstance(value, (float, int)):
             raise TypeError (f"x_center must be an int or float and not {type(value)}")
         self._x_center = value
     
     @y_center.setter
     def y_center(self, value: float|int) -> float|int:
-        print("GS y_center setter körs")
+        #print("GS y_center setter körs")
         if not isinstance(value, (float, int)):
             raise TypeError (f"y_center must be an int or float and not {type(value)}")
         self._y_center = value
     
     def __repr__(self) -> str:
-        return f"Superclass 'GeomShapes', '{self.x_center}', '{self.y_center}'"
+        return (f"Superclass 'GeomShapes', '{self.x_center}', '{self.y_center}'")
     
     def __str__(self) -> str:
-        return f"Shape centered in (x,y) = ({self.x_center},{self.y_center})"
+        return (f"Shape centered in (x,y) = ({self.x_center},{self.y_center})")
     
     def __gt__(self, other: float) -> bool:
         """Returns True if area of first shape is grater than the second shape"""
@@ -64,7 +64,7 @@ class GeomShape:
             return False
 
     def translate(self, x_new: float|int, y_new: float|int) -> None:
-        """Moves shape to new center point"""
+        """Moves shape to new center point. Origial shape is unchanged"""
         new_shape = copy(self)
         if not isinstance(x_new, (float, int)):
             raise TypeError (f"x_new must be int or float and not {type(x_new)}")
@@ -79,33 +79,33 @@ class GeomShape:
 import math
 
 class Circle(GeomShape):
-    """Circle with defined radius and thus area and circumference"""
+    """Circle with defined radius and thus calculated area and circumference"""
     
     def __init__(self, x_center: float|int, y_center: float|int, radius: float|int) -> None:
-        print("C__init__ körs")
+        #print("C__init__ körs")
         super().__init__(x_center, y_center)
         self.radius = radius
-        self._area = None                   # To make sure value is None to begin with
-        self._circumference = None          # To make sure value is None to begin with
+        self._area = None                               # To make sure value is None to begin with
+        self._circumference = None                      # To make sure value is None to begin with
     
     # getters
     @property
     def radius(self) -> float|int:
-        print("C radus getter körs")
+        #print("C radus getter körs")
         return self._radius
     
     @property
     def area(self) -> float|int:
-        print("C area getter körs")
-        if self._area is not None:          # is values is assigend already, does not have to be calculated again
+        #print("C area getter körs")
+        if self._area is not None:                      # if values is assigend already, does not have to be calculated again
             return self._area
         else:
-            self._area = math.pi * self._radius ** 2 #måste vara ._area då finns ingen sätter; _radius to get value faster as does not go via getter
-            return self._area                           # lek med att testa hur programmet körs med _radus och radius
+            self._area = math.pi * self._radius ** 2    # måste vara ._area då finns ingen sätter; _radius does not go via getter
+            return self._area
 
     @property
     def circumference(self) -> float|int:
-        print("C circumference getter körs")
+        #print("C circumference getter körs")
         if self._circumference is not None:
             return self._circumference
         else:
@@ -115,7 +115,7 @@ class Circle(GeomShape):
     #setters
     @radius.setter
     def radius(self, value) -> float|int:
-        print("C radius setter körs")
+        #print("C radius setter körs")
         if not isinstance (value, (float, int)):
             raise TypeError (f"Radius must be a float or an int and not {type(value)}")
         if value <= 0:
@@ -153,11 +153,11 @@ class Circle(GeomShape):
 # =================================================================================================================#
 
 class Rectangle(GeomShape):
-    """Rectangle with defined sides (side a along x-axis, side b along y-axis) and thus area and circumference"""
+    """Rectangle with defined sides (side a along x-axis, side b along y-axis) and thus calculated area and circumference"""
     
     def __init__(self, x_center: float|int, y_center: float|int, side_a: float|int, side_b: float|int) -> None:
-        print("R__init__ körs")
-        super().__init__(x_center, y_center) #ingen self med här då super() lägger på self själv
+        #print("R__init__ körs")
+        super().__init__(x_center, y_center)                #ingen self med här då super() lägger på self själv
         self.side_a = side_a
         self.side_b = side_b
         self._area = None
@@ -166,17 +166,17 @@ class Rectangle(GeomShape):
     # getters
     @property
     def side_a(self) -> float|int:
-        print("R side_a getter körs")
+        #print("R side_a getter körs")
         return self._side_a
     
     @property
     def side_b(self) -> float|int:
-        print("R side_b getter körs")
+        #print("R side_b getter körs")
         return self._side_b
     
     @property
     def area(self) -> float|int:
-        print("R area getter körs")
+        #print("R area getter körs")
         if self._area is not None:
             return self._area
         else:
@@ -185,7 +185,7 @@ class Rectangle(GeomShape):
     
     @property
     def circumference(self) -> float|int:
-        print("R circumference getter körs")
+        #print("R circumference getter körs")
         if self._circumference is not None:
             return self._circumference
         else:
@@ -195,7 +195,7 @@ class Rectangle(GeomShape):
     #setters
     @side_a.setter
     def side_a(self, value) -> float|int:
-        print("R side_a setter körs")
+        #print("R side_a setter körs")
         if not isinstance (value, (float, int)):
             raise TypeError (f"Side must be a float or an int and not {type(value)}")
         if value <= 0:
@@ -204,7 +204,7 @@ class Rectangle(GeomShape):
     
     @side_b.setter
     def side_b(self, value) -> float|int:
-        print("R side_b setter körs")
+        #print("R side_b setter körs")
         if not isinstance (value, (float, int)):
             raise TypeError (f"Side must be a float or an int and not {type(value)}")
         if value <= 0:
