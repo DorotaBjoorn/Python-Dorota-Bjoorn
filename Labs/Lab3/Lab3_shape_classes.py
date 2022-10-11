@@ -63,7 +63,7 @@ class GeomShape:
         else:
             return False
 
-    def translate(self, x_new: float|int, y_new: float|int) -> None:
+    def translate(self, x_new: float|int, y_new: float|int) -> GeomShape:
         """Moves shape to new center point. Origial shape is unchanged"""
         new_shape = copy(self)
         if not isinstance(x_new, (float, int)):
